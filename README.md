@@ -13,7 +13,7 @@ A C++ project that utilizes raycasting to simulate a 3D-style environment from a
 
 ## Introduction
 
-Inspired by videos I watched on the math behind raycasting, I decided to try and implement the system myself from scratch using C++. I also decided to do this project to help develop my skills in CMake, GTest, and modern C++17 techniques.
+Inspired by videos I watched on the math behind raycasting, I decided to try and implement the system myself from scratch using C++. I also decided to do this project to help develop my skills in CMake, GTest, and modern C++17 techniques. The math behind raycasting can be found here: https://www.youtube.com/watch?v=NbSee-XM7WA
 
 ## Features
 - Converts image to 2d map to be rendered in 3d
