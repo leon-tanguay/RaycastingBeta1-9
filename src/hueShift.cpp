@@ -1,4 +1,4 @@
-#include "hueShift.h"
+#include "header/hueShift.h"
 
 //https://stackoverflow.com/questions/8507885/shift-hue-of-an-rgb-color
 

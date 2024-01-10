@@ -24,17 +24,17 @@ FetchContent_Declare(ImGui-SFML
 FetchContent_MakeAvailable(ImGui-SFML)
 
 add_executable(RaycastingProject 
+    "src/header/hueShift.h" 
+    "src/header/player.h"
+    "src/header/ray.h" 
+    "src/header/map.h" 
+    "src/header/rcvector.h"
+    "src/header/resourcemanager.h"
     "src/main.cpp" 
-    "src/hueShift.h" 
     "src/hueShift.cpp" 
-    "src/grid.cpp" 
-    "src/wallMap.h" 
-    "src/wall.h" 
-    "src/map.h" 
-    "src/player.h" 
-    "src/ray.h" 
-    "src/rcvector.h"
-)
+    "src/player.cpp"
+    "src/ray.cpp" 
+    "src/map.cpp" "src/header/drawhandler.h")
 
 target_link_libraries(RaycastingProject PRIVATE sfml-graphics ImGui-SFML::ImGui-SFML)
 target_compile_features(RaycastingProject PRIVATE cxx_std_17)
@@ -83,8 +83,8 @@ enable_testing()
 
 add_executable(run_tests
   "tests/testRCVector.cpp"
-  "src/rcvector.h"
-)
+  "src/header/rcvector.h"
+ "src/header/drawhandler.h")
 
 target_compile_features(run_tests PRIVATE cxx_std_17)
 

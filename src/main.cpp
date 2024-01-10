@@ -8,12 +8,14 @@
 #include <imgui-SFML.h>
 #include <imgui.h>
 #include <math.h>
-#include "hueShift.h"
-#include "map.h"
-#include "player.h"
-#include "ray.h"
-#include "rcvector.h";
-#include "resourcemanager.h"
+
+#include "header/hueShift.h"
+#include "header/map.h"
+#include "header/player.h"
+#include "header/ray.h"
+#include "header/rcvector.h";
+#include "header/resourcemanager.h"
+#include "header/drawhandler.h"
 
 //Constants
 const std::string WINDOW_TITLE{ "RayCasting" }; 
@@ -49,39 +51,54 @@ bool loadResources(ResourceManager& resourceManager)
 
 int main()
 {
+    //load graphics needed
     ResourceManager resources{ RESOURCE_DIR };
     if (!loadResources(resources))
     {
         return -1;
     }
 
+    //set up SFML window
     sf::RenderWindow window = sf::RenderWindow{ sf::VideoMode(SCREEN_SIZE.x, SCREEN_SIZE.y), WINDOW_TITLE };
     window.setFramerateLimit(FRAME_RATE);
-    window.setMouseCursorVisible(false);
     const rc::Vector2f screenCenterPos{ static_cast<float> (window.getSize().x) / 2.f,  static_cast<float> (window.getSize().y) / 2.f };
     
+    //set up player sprite
     sf::Sprite playerSprite{ resources.getTexture("player") };
     playerSprite.setOrigin(sf::Vector2f(resources.getTexture("player").getSize() / 2u));
 
+    //set up the map
     rc::Map wallMap{ window, resources.getImage("map"), GUI_SCALE };
-    const float gridSize = wallMap.getTileSizeF();
+    const float tileSize = wallMap.getTileSizeF();
 
+    //set up the player sprite's controller
     rc::PlayerController player{ PLAYER_MAX_SPEED };
     player.setPos(screenCenterPos);
 
+    //set up the handler for raycasting
     rc::RayHandler rayHandler(wallMap, window, GUI_SCALE);
 
-    rc::Vector2f tileSizeVector(gridSize, gridSize);
+    //initialize variables
+    rc::Vector2f tileSizeVector(tileSize, tileSize);
     sf::RectangleShape wallHitBox(tileSizeVector);
-
     bool captureMouseForMovement = true;
+    window.setMouseCursorVisible(!captureMouseForMovement);
 
+    //set mouse to center of screen
     sf::Mouse::setPosition(screenCenterPos.toInt(), window);
+
+    //set up SFML clock
     sf::Clock clock;
+
+    //unused at the moment
+    //std::vector<sf::Drawable> drawList;
+
     while (window.isOpen())
     {
+        
         for (auto event = sf::Event{}; window.pollEvent(event);)
         {
+            //close window if the window's close button is clicked
             if (event.type == sf::Event::Closed)
             {
                 window.close();
@@ -96,6 +113,7 @@ int main()
                     {
                         sf::Mouse::setPosition(screenCenterPos.toInt(), window);
                     }
+                    window.setMouseCursorVisible(!captureMouseForMovement);
                 }
             }
         }
@@ -123,8 +141,8 @@ int main()
         //handle collissions
         wallMap.handleCollisions(position, velocity, playerSprite.getGlobalBounds());
 
-        position.x += velocity.x * gridSize;
-        position.y += velocity.y * gridSize;
+        position.x += velocity.x * tileSize;
+        position.y += velocity.y * tileSize;
         player.setPos(position);
 
         bool pause = false;

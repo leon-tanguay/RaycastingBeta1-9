@@ -2,7 +2,7 @@
 
 ![RayCasting Demo](raycastDemo.gif)
 
-A C++ project that utilizes raycasting to simulate a 3D-style environment from a 2D image, inspired by retro games like Wolfenstein 3d, utilizing the SFML library to handle graphics and input.
+A C++ project that utilizes raycasting to simulate a 3D-style environment from a 2D image, inspired by retro games like Wolfenstein 3D, utilizing the SFML library to handle graphics and input.
 
 ## Table of Contents
 - [Introduction](#introduction)
