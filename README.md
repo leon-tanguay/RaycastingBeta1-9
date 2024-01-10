@@ -9,6 +9,7 @@ A C++ project that utilizes raycasting to simulate a 3D-style environment from a
 - [Features](#features)
 - [Dependencies](#dependencies)
 - [Controls](#controls)
+- [Improvements](#improvements)
 
 ## Introduction
 
@@ -33,3 +34,7 @@ Inspired by videos I watched on the math behind raycasting, I decided to try and
 ## Controls
 
 WASD to for directional movement. Mouse movement rotates player character horizontally and vertically. Press ESC to free mouse from window.
+
+## Improvements
+
+I hope to add more player movement options such as jumping in the future to help immerse the player in the world, as well as adding support for textured terrain and a more advanced lighting system. Prior to these features, I want to ensure that the code is as clean as possible, and manage the amount of required dependencies
