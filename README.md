@@ -8,7 +8,6 @@ A C++ project that utilizes raycasting to simulate a 3D-style environment from a
 - [Introduction](#introduction)
 - [Features](#features)
 - [Dependencies](#dependencies)
-- [Installation](#installation)
 - [Controls](#controls)
 
 ## Introduction
