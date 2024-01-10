@@ -20,6 +20,7 @@ Inspired by videos I watched on the math behind raycasting, I decided to try and
 - First-person player controller using WASD keys and mouse
 - Hue Shifting Algorithm implemented using a simulation of a color cube rotation
 - RayCasting simulation using physics, made more efficient by a grid-based system
+- Player collision detection
 - 3D-style environment with a simple shader system
 - SFML integration
 - Custom Vector template class
