@@ -17,15 +17,16 @@ A C++ project that utilizes raycasting to simulate a 3D-style environment from a
 
 ## Introduction
 
-Inspired by videos I watched on the math behind raycasting, I decided to try and implement the system myself from scratch using c++. I also decided to do this project to help develop my skills in CMake, GTest, and modern C++17 techniques.
+Inspired by videos I watched on the math behind raycasting, I decided to try and implement the system myself from scratch using C++. I also decided to do this project to help develop my skills in CMake, GTest, and modern C++17 techniques.
 
 ## Features
-
-Highlight the key features of your project. This could include things like:
-- RayCasting engine
-- 3D-style environment
+- Converts image to 2d map to be rendered in 3d
+- First-person player controller using WASD keys and mouse
+- Hue Shifting Algorithm implemented using a simulation of a color cube rotation
+- RayCasting simulation using physics, made more efficient by a grid-based system
+- 3D-style environment with a simple shader system
 - SFML integration
-- Inspired by retro games like Castle Wolfenstein
+- Custom Vector template class
 
 ## Demo
 
@@ -35,11 +36,14 @@ Include a link to a demo video or showcase screenshots to give users a quick ove
 
 ## Requirements
 
-List the prerequisites and dependencies required to run your project. Include information about the C++ compiler, SFML library version, and any other relevant dependencies.
+- C++17 or later.
+- CMake version 3.16 or later
+- SFML 2.6
+- ImGui v1.89
 
 ## Installation
 
-Provide step-by-step instructions on how to install and set up your project. Include any necessary commands or configuration settings.
+CMake handles
 
 ## Usage
 
@@ -47,8 +51,7 @@ Explain how users can use your application. Include any command-line arguments, 
 
 ## Controls
 
-Outline the controls for navigating the 3D environment. Include information about how users can interact with the simulation, move around, and perform other actions.
-
+WASD to for directional movement. Mouse movement rotates player character horizontally and vertically. Press ESC to free mouse from window.
 ## Contributing
 
 Explain how others can contribute to your project. Include guidelines for submitting issues, feature requests, and pull requests. Mention any coding standards or conventions you follow.
